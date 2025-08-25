@@ -1,0 +1,76 @@
+/* ===== CSS Variables: cyberpunk palette ===== */
+:root{
+  --bg:#05050a;
+  --fg:#e8e8ff;
+  --muted:#a8a8c9;
+  --pink:#ff4fd8;
+  --fuchsia:#b366ff;
+  --violet:#7c4dff;
+  --blue:#3aa0ff;
+  --cyan:#64e1ff;
+  --glass: rgba(10,12,20,.45);
+  --glass-border: rgba(255,255,255,.18);
+  --blur: 18px;
+  --radius: 22px;
+  --shadow: 0 10px 30px rgba(0,0,0,.55), inset 0 0 1px rgba(255,255,255,.2);
+  --neon: drop-shadow(0 0 6px var(--pink)) drop-shadow(0 0 16px var(--violet)) drop-shadow(0 0 28px var(--blue));
+}
+
+/* Base */
+*{ box-sizing: border-box }
+html,body{ height:100%; }
+body{
+  margin:0; font-family: ui-sans-serif, system-ui, Segoe UI, Roboto;
+  color:var(--fg); background: radial-gradient(1200px 600px at 10% 10%, #0b0d1f 0, transparent 60%),
+                     radial-gradient(1000px 600px at 90% 20%, #0a142a 0, transparent 60%),
+                     linear-gradient(160deg, #06060d, #070813 65%, #06060d);
+  overflow-x:hidden; letter-spacing:.2px;
+}
+
+/* Background grid, aurora blobs, scanlines */
+.grid{position:fixed;inset:0;opacity:.25;pointer-events:none;
+  background-image: linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridShift 18s linear infinite;}
+@keyframes gridShift{to{background-position:120px 60px, 60px 120px}}
+
+.aurora{position:fixed;inset:-20vmax;filter:blur(90px) saturate(130%);opacity:.6;pointer-events:none}
+.blob{position:absolute;width:55vmax;height:55vmax;border-radius:50%}
+.b1{background:radial-gradient(circle at 30% 30%, var(--pink), transparent 60%);animation:float1 22s ease-in-out infinite;left:-10vmax;top:-10vmax}
+.b2{background:radial-gradient(circle at 60% 40%, var(--violet), transparent 60%);animation:float2 28s ease-in-out infinite;right:-8vmax;top:10vmax}
+.b3{background:radial-gradient(circle at 50% 50%, var(--blue), transparent 60%);animation:float3 26s ease-in-out infinite;left:20vmax;bottom:-12vmax}
+.b4{background:radial-gradient(circle at 50% 50%, var(--cyan), transparent 60%);animation:float4 32s ease-in-out infinite;right:-18vmax;bottom:-16vmax}
+@keyframes float1{0%,100%{transform:translate(0,0)}50%{transform:translate(8vmax,2vmax)}}
+@keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(-6vmax,-3vmax)}}
+@keyframes float3{0%,100%{transform:translate(0,0)}50%{transform:translate(4vmax,-4vmax)}}
+@keyframes float4{0%,100%{transform:translate(0,0)}50%{transform:translate(-10vmax,5vmax)}}
+
+.scanlines{position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom,rgba(255,255,255,.06),rgba(255,255,255,.06) 1px,transparent 1px,transparent 3px);
+ mix-blend-mode:soft-light;opacity:.18;animation:flicker 4s infinite}
+@keyframes flicker{0%,100%{opacity:.18}40%{opacity:.12}55%{opacity:.2}70%{opacity:.1}}
+
+/* Header */
+header{position:sticky;top:0;z-index:40;backdrop-filter:blur(14px) saturate(120%);background:rgba(10,12,20,.5);border-bottom:1px solid var(--glass-border);}
+.wrap{max-width:1100px;margin:0 auto;padding:16px 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:32px;letter-spacing:.12em;text-transform:lowercase;font-weight:800;filter:var(--neon)}
+.logo span{background:linear-gradient(90deg,var(--pink),var(--violet),var(--blue));-webkit-background-clip:text;color:transparent}
+
+.chip{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);border:1px solid var(--glass-border);padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.02);box-shadow:var(--shadow)}
+.dot{width:8px;height:8px;border-radius:50%;background:radial-gradient(circle,var(--cyan),var(--blue));box-shadow:0 0 10px var(--blue),0 0 20px var(--cyan)}
+
+/* Main card */
+main{max-width:1100px;margin:42px auto;padding:0 16px}
+.card{border-radius:var(--radius);background:rgba(255,255,255,.06);border:1px solid var(--glass-border);backdrop-filter:blur(var(--blur));box-shadow:var(--shadow);overflow:hidden}
+.card-inner{display:grid;gap:18px;padding:20px}
+.title{font-size:40px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;filter:var(--neon)}
+.subtitle{color:var(--muted);font-size:14px}
+
+.bio{white-space:pre-wrap;font-family:monospace;font-size:15px;line-height:1.5;color:var(--fg);padding:14px;border-radius:14px;background:rgba(0,0,0,.25);border:1px dashed rgba(255,255,255,.18);text-shadow:0 0 8px rgba(179,102,255,.25)}
+
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+button{cursor:pointer;border:none;border-radius:14px;padding:10px 14px;font-weight:700;letter-spacing:.04em;color:#0b0b13;
+background:linear-gradient(90deg,var(--cyan),var(--blue));box-shadow:0 6px 18px rgba(58,160,255,.35)}
+button.secondary{color:var(--fg);background:linear-gradient(90deg,rgba(255,79,216,.25),rgba(124,77,255,.25));border:1px solid var(--glass-border)}
+
+footer{max-width:1100px;margin:28px auto 60px;padding:0 16px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between}
