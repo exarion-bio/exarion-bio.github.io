@@ -4,12 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>exarion — bio</title>
-  <meta name="description" content="Киберпанк/неон сайт-биография: exarion" />
-  <meta name="color-scheme" content="dark light">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Background layers -->
+  <canvas id="matrix"></canvas>
   <div class="grid" aria-hidden="true"></div>
   <div class="aurora" aria-hidden="true">
     <div class="blob b1"></div>
@@ -22,7 +21,10 @@
   <!-- Header -->
   <header>
     <div class="wrap">
-      <div class="logo" aria-label="exarion logo"><span>exarion</span></div>
+      <div class="logo" aria-label="exarion logo">
+        <span>exarion</span>
+        <img src="cute.png" alt=":3" class="cute-icon">
+      </div>
       <div class="chip" title="online">
         <span class="dot" aria-hidden="true"></span>
         <span>status: <strong>online</strong></span>
@@ -37,65 +39,57 @@
       <div class="card-inner">
         <div class="content">
           <h1 id="title" class="title">Bio</h1>
-          <p class="subtitle">Киберпанк/неон • стеклянный блюр • фиолетовый / синий / розовый / белый / чёрный</p>
 
           <div class="bio-wrap">
             <pre id="bio" class="bio" tabindex="0">Hi!👋
 
-ℹInfo:
+Info:
 My nickname: exarion
 (You can call me exe/exi)
 My surname: Timur
 My username: @exawion
 Pronous: He/Him
-Languages: 🇷🇺/🇺🇸/(🇯🇵in process)
+Languages: 🇷🇺/🇺🇸/🇯🇵(in process)
 Country: 🇷🇺
-😵🤔🙁😝😤☹️🙁☹️
-📼Devices:
-💻Laptop:
-Huawei MateBook D15
-🔳Intel Core i5 1155G7
-📼16gb
-🍽Intel Iris Xe Graphics
-🪟/🐧with hyprland
-📱Phone:
-OPPO A3
-🔳Snapdragon 6s 4G Gen1 Octa-core
-📼6gb+6gb
-🤖Android 14
-😵🤔🙁😝😤☹️🙁☹️
-☀️Hobbies:
-Coding on 🐍/➕ (in process too)
-😀Music: Game Soundtracks, RHCP, Linkin Park, Lena Raine, mzlff, Hatsune Miku.
-Playing Minecraft, Geometry Dash, Progressbar 95, HoI4(rarely), Terraria, Undertale, Deltarune, FNaF.
-IRL I practice drums btw
-?🤔🙁😝😤☹️🙁☹️
+
+✦ ✧ ✦
+
+Devices:
+Laptop:
+  Huawei MateBook D15
+  Intel Core i5 1155G7
+  16gb
+  Intel Iris Xe Graphics
+  Windows 11/EndevaourOS with hyprland
+Phone:
+  OPPO A3
+  Snapdragon 6s 4G Gen1 Octa-core
+  6gb+6gb
+  Android 14
+
+✦ ✧ ✦
+
+Hobbies:
+  Coding on Python/C++ (in process too)
+  Music: Game Soundtracks, RHCP, Linkin Park, Lena Raine, mzlff, Hatsune Miku.
+  Playing Minecraft, Geometry Dash, Progressbar 95, HoI4(rarely), Terraria, Undertale, Deltarune, FNaF.
+  IRL I practice drums btw
+
+✦ ✧ ✦
+
 Thank you for reading my bio :3, have a nice day😀
 
 P.S: I love friends, always write if you want to chat!😆
 
-Upd: 50 views btw :3</pre>
+</pre>
           </div>
 
           <div class="actions">
-            <button id="copyBtn" class="tip" data-tip="Скопировать текст био (Ctrl/Cmd+C)">Copy bio</button>
-            <button id="glitchBtn" class="secondary tip" data-tip="Лёгкий глитч-анимация">Glitch</button>
-            <button id="scanBtn" class="secondary tip" data-tip="Вкл/выкл сканлайны">Scanlines</button>
+            <button id="copyBtn">Copy bio</button>
+            <button id="glitchBtn" class="secondary">Glitch</button>
+            <button id="scanBtn" class="secondary">Scanlines</button>
           </div>
         </div>
-
-        <aside class="meta">
-          <div class="card" style="padding:16px">
-            <h2 class="title" style="font-size:20px">Контакты</h2>
-            <p class="subtitle" style="margin-top:-6px">маленькая карточка со стеклом</p>
-            <ul style="list-style:none; padding-left:0; margin: 10px 0 0; display:grid; gap:10px">
-              <li>Username: <span class="kbd">@exawion</span></li>
-              <li>Nick: <span class="kbd">exarion</span></li>
-              <li>Pronouns: <span class="kbd">He/Him</span></li>
-              <li>Langs: <span class="kbd">RU / EN / JP*</span></li>
-            </ul>
-          </div>
-        </aside>
       </div>
     </section>
   </main>
